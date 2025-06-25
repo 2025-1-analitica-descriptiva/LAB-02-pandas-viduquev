@@ -5,6 +5,8 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
+import pandas as pd
+from pathlib import Path
 
 def pregunta_08():
     """
@@ -22,3 +24,14 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
+
+    INPUT_DIR = Path("files/input")
+
+    path0 = INPUT_DIR / "tbl0.tsv"
+
+    tbl0 = pd.read_csv(path0, sep='\t')
+
+    df = tbl0.copy()
+
+    df['suma'] = df['c0'] + df['c2']
+    return df

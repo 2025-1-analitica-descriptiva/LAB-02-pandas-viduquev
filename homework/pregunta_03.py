@@ -4,7 +4,8 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 `tbl2.tsv`. En este laboratorio solo puede utilizar las funciones y 
 librerias de pandas para resolver las preguntas.
 """
-
+import pandas as pd
+from pathlib import Path
 
 def pregunta_03():
     """
@@ -21,3 +22,11 @@ def pregunta_03():
     Name: count, dtype: int64
 
     """
+
+    INPUT_DIR = Path("files/input")
+
+    path0 = INPUT_DIR / "tbl0.tsv"
+
+    tbl0 = pd.read_csv(path0, sep = "\t")
+
+    return tbl0["c1"].value_counts().sort_index()
